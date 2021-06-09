@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol HomeScreenSceneDisplayLogic: class
+protocol HomeScreenSceneDisplayLogic: AnyObject
 {
   func displaySomething(viewModel: HomeScreenScene.Something.ViewModel)
 }
@@ -69,14 +69,24 @@ class HomeScreenSceneViewController: UIViewController, HomeScreenSceneDisplayLog
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    weatherIconView.image = UIImage(systemName: "sun.min")
     doSomething()
+    
+    
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
+    
+    
+    @IBOutlet weak var cityName: UITextView!
+    
+    @IBOutlet weak var weatherIconView: UIImageView!
+    
+    @IBOutlet weak var tempertatureValue: UITextView!
+    
+    func doSomething()
   {
     let request = HomeScreenScene.Something.Request()
     interactor?.doSomething(request: request)
