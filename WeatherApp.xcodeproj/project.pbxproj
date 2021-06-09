@@ -127,7 +127,7 @@
 			children = (
 				7439632F2671180E007E16C6 /* SwiftUI View */,
 				74D3F838267096CD00C8C20B /* HomeScene */,
-				749F2E13266F89140017AFC3 /* Views */,
+				749F2E13266F89140017AFC3 /* TabBarView */,
 				749F2DFF266F83FF0017AFC3 /* AppDelegate.swift */,
 				749F2E01266F83FF0017AFC3 /* SceneDelegate.swift */,
 				749F2E03266F83FF0017AFC3 /* ViewController.swift */,
@@ -139,14 +139,14 @@
 			path = WeatherApp;
 			sourceTree = "<group>";
 		};
-		749F2E13266F89140017AFC3 /* Views */ = {
+		749F2E13266F89140017AFC3 /* TabBarView */ = {
 			isa = PBXGroup;
 			children = (
 				74889CA6266FC2DA00466EFA /* TabBarViewController.swift */,
 				74889CA8266FC8DB00466EFA /* MapViewController.swift */,
 				74889CA9266FC8DB00466EFA /* MapViewController.xib */,
 			);
-			path = Views;
+			path = TabBarView;
 			sourceTree = "<group>";
 		};
 		74BF684F2670B25E005D0855 /* Workers */ = {
