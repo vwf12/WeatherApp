@@ -13,7 +13,8 @@ import Foundation
 
 class HomeScreenViewController: UIViewController {
     
-    var networkManager = NetworkManager()
+    private var networkManager = NetworkManager()
+    private let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var weatherIconView: UIImageView!
     
@@ -29,16 +30,32 @@ class HomeScreenViewController: UIViewController {
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    if self.traitCollection.userInterfaceStyle == .light {
-        self.view.backgroundColor = .white
-    }
-
-//    self.view.backgroundColor = self.traitCollection.userInterfaceStyle == .dark : .black ? .white
     networkManager.delegate = self
     searchTextField.delegate = self
     weatherIconView.image = UIImage(systemName: "sun.min")
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(loadCityFromUserDefaults), name: UIApplication.willEnterForegroundNotification, object: nil)
+    if self.traitCollection.userInterfaceStyle == .light {
+        self.view.backgroundColor = .white
+    }
+    if let city = userDefaults.object(forKey: "City") as? String {
+        print("Updating for \(city) cause found in userDefaults")
+        networkManager.fetchWeather(cityName: city)
+            }
+
+
+    weatherIconView.image = UIImage(systemName: "sun.min")
 
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("View will appear")
+        if let city = userDefaults.object(forKey: "City") as? String {
+            print("Updating for \(city) cause found in userDefaults")
+            networkManager.fetchWeather(cityName: city)
+                }
+    }
   
 }
 
@@ -78,7 +95,8 @@ extension HomeScreenViewController: NetworkManagerDelegate {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString
             self.weatherIconView.image = UIImage(systemName: weather.conditionName)
-            self.cityNameLabel.text = weather.cityName
+            self.cityNameLabel.text = weather.cityName + "" + self.getFlag(from: weather.country)
+            self.userDefaults.set(weather.cityName, forKey: "City")
         }
     }
     
@@ -86,4 +104,22 @@ extension HomeScreenViewController: NetworkManagerDelegate {
         print(error)
     }
     
+}
+
+extension HomeScreenViewController {
+    func getFlag(from countryCode: String) -> String {
+
+        return countryCode
+            .unicodeScalars
+            .map({ 127397 + $0.value })
+            .compactMap(UnicodeScalar.init)
+            .map(String.init)
+            .joined()
+    }
+}
+
+extension HomeScreenViewController {
+    @objc func loadCityFromUserDefaults() {
+//        Todo
+    }
 }

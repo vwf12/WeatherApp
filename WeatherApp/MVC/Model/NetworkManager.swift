@@ -22,10 +22,10 @@ struct NetworkManager {
         print("Fetching weather for \(cityName)")
         let urlString = "\(weatherURL)&q=\(cityName)"
         
-        perfomReequest(with: urlString)
+        perfomRequest(with: urlString)
     }
     
-    func perfomReequest(with urlstring: String) {
+    func perfomRequest(with urlstring: String) {
         
         if let url = URL(string: urlstring) {
             let session = URLSession(configuration: .default)
@@ -51,9 +51,10 @@ struct NetworkManager {
             let id = decodedData.weather[0].id
             let temp = decodedData.main.temp
             let name = decodedData.name
+            let country = decodedData.sys.country
             print(decodedData)
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, country: country)
             return weather
         
         } catch {
