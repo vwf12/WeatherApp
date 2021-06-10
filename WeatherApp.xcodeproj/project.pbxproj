@@ -21,6 +21,7 @@
 		749F2E07266F83FF0017AFC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E05266F83FF0017AFC3 /* Main.storyboard */; };
 		749F2E09266F84010017AFC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E08266F84010017AFC3 /* Assets.xcassets */; };
 		749F2E0C266F84010017AFC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E0A266F84010017AFC3 /* LaunchScreen.storyboard */; };
+		74B2BAAA2671F43B008351E9 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */; };
 		74BF684E2670B10A005D0855 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BF684D2670B10A005D0855 /* HomeScreen.storyboard */; };
 		74D3F84B2670970800C8C20B /* HomeScreenScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8452670970800C8C20B /* HomeScreenScenePresenter.swift */; };
 		74D3F84C2670970800C8C20B /* HomeScreenSceneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8462670970800C8C20B /* HomeScreenSceneWorker.swift */; };
@@ -46,6 +47,7 @@
 		749F2E08266F84010017AFC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749F2E0B266F84010017AFC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		749F2E0D266F84010017AFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		74BF684D2670B10A005D0855 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		74D3F8452670970800C8C20B /* HomeScreenScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenScenePresenter.swift; sourceTree = "<group>"; };
 		74D3F8462670970800C8C20B /* HomeScreenSceneWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSceneWorker.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 		7439630C2670BE2C007E16C6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7439632B26710970007E16C6 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -90,8 +91,6 @@
 		7439630D2670BE38007E16C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7439630E2670BECD007E16C6 /* WeatherData.swift */,
-				7439632D267109D8007E16C6 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +124,7 @@
 		749F2DFE266F83FF0017AFC3 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				74B2BAA42671EFE7008351E9 /* MVC */,
 				7439632F2671180E007E16C6 /* SwiftUI View */,
 				74D3F838267096CD00C8C20B /* HomeScene */,
 				749F2E13266F89140017AFC3 /* TabBarView */,
@@ -149,6 +149,42 @@
 			path = TabBarView;
 			sourceTree = "<group>";
 		};
+		74B2BAA42671EFE7008351E9 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				74B2BAA82671F029008351E9 /* Controller */,
+				74B2BAA72671F017008351E9 /* View */,
+				74B2BAA52671EFF7008351E9 /* Model */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		74B2BAA52671EFF7008351E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7439632B26710970007E16C6 /* NetworkManager.swift */,
+				7439630E2670BECD007E16C6 /* WeatherData.swift */,
+				7439632D267109D8007E16C6 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74B2BAA72671F017008351E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74BF684D2670B10A005D0855 /* HomeScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74B2BAA82671F029008351E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		74BF684F2670B25E005D0855 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +204,6 @@
 				74D3F8482670970800C8C20B /* HomeScreenSceneModels.swift */,
 				74D3F8492670970800C8C20B /* HomeScreenSceneViewController.swift */,
 				74D3F84A2670970800C8C20B /* HomeScreenSceneInteractor.swift */,
-				74BF684D2670B10A005D0855 /* HomeScreen.storyboard */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -298,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D3F84D2670970800C8C20B /* HomeScreenSceneRouter.swift in Sources */,
+				74B2BAAA2671F43B008351E9 /* HomeScreenViewController.swift in Sources */,
 				74D3F84E2670970800C8C20B /* HomeScreenSceneModels.swift in Sources */,
 				74889CA7266FC2DA00466EFA /* TabBarViewController.swift in Sources */,
 				7439632C26710970007E16C6 /* NetworkManager.swift in Sources */,

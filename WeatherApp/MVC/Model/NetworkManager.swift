@@ -15,10 +15,11 @@ protocol NetworkManagerDelegate {
 struct NetworkManager {
     
 
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=e149425106b7d1452926ba2c08701f84&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=daa4c78470b0f95d11bd75012915ce23&units=metric"
     var delegate: NetworkManagerDelegate?
     
     func fetchWeather(cityName: String) {
+        print("Fetching weather for \(cityName)")
         let urlString = "\(weatherURL)&q=\(cityName)"
         
         perfomReequest(with: urlString)
@@ -50,12 +51,14 @@ struct NetworkManager {
             let id = decodedData.weather[0].id
             let temp = decodedData.main.temp
             let name = decodedData.name
+            print(decodedData)
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
             return weather
         
         } catch {
             delegate?.didFailWithError(error: error)
+            print(error)
             return nil
         }
     }

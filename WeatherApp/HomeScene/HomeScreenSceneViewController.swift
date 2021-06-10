@@ -69,7 +69,7 @@ class HomeScreenSceneViewController: UIViewController, HomeScreenSceneDisplayLog
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    weatherIconView.image = UIImage(systemName: "sun.min")
+//    weatherIconView.image = UIImage(systemName: "sun.min")
     doSomething()
     
     
@@ -80,11 +80,11 @@ class HomeScreenSceneViewController: UIViewController, HomeScreenSceneDisplayLog
   //@IBOutlet weak var nameTextField: UITextField!
     
     
-    @IBOutlet weak var cityName: UITextView!
-    
-    @IBOutlet weak var weatherIconView: UIImageView!
-    
-    @IBOutlet weak var tempertatureValue: UITextView!
+//    @IBOutlet weak var cityName: UITextView!
+//
+//    @IBOutlet weak var weatherIconView: UIImageView!
+//
+//    @IBOutlet weak var tempertatureValue: UITextView!
     
     func doSomething()
   {

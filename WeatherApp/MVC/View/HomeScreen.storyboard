@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Screen Scene View Controller-->
+        <!--Home Screen View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="homeScreen" id="Y6W-OH-hqX" customClass="HomeScreenSceneViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeScreen" id="Y6W-OH-hqX" customClass="HomeScreenViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kux-Cl-23k">
                                                 <rect key="frame" x="326" y="0.0" width="48" height="34"/>
                                                 <state key="normal" title="Search"/>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8EB-Ys-ziM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -69,6 +72,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cityNameLabel" destination="gaE-Vs-bVK" id="X3u-Mh-13Y"/>
+                        <outlet property="searchTextField" destination="CCb-zG-Km1" id="r9b-hp-SkI"/>
+                        <outlet property="temperatureLabel" destination="MzV-wa-tDC" id="7pC-Bm-UxT"/>
                         <outlet property="weatherIconView" destination="Q4y-PA-Mu4" id="UXI-Pa-lPa"/>
                     </connections>
                 </viewController>
