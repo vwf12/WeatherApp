@@ -21,7 +21,11 @@
 		749F2E07266F83FF0017AFC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E05266F83FF0017AFC3 /* Main.storyboard */; };
 		749F2E09266F84010017AFC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E08266F84010017AFC3 /* Assets.xcassets */; };
 		749F2E0C266F84010017AFC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F2E0A266F84010017AFC3 /* LaunchScreen.storyboard */; };
+		74AB40C326775C9300EDFF18 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB40C226775C9300EDFF18 /* Locations.swift */; };
+		74AB40C6267762B900EDFF18 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74AB40C4267762B900EDFF18 /* WeatherApp.xcdatamodeld */; };
 		74B2BAAA2671F43B008351E9 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */; };
+		74B2BAB2267254A3008351E9 /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2BAB0267254A3008351E9 /* GradientViewController.swift */; };
+		74B2BAB3267254A3008351E9 /* GradientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B2BAB1267254A3008351E9 /* GradientViewController.xib */; };
 		74BF684E2670B10A005D0855 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BF684D2670B10A005D0855 /* HomeScreen.storyboard */; };
 		74D3F84B2670970800C8C20B /* HomeScreenScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8452670970800C8C20B /* HomeScreenScenePresenter.swift */; };
 		74D3F84C2670970800C8C20B /* HomeScreenSceneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8462670970800C8C20B /* HomeScreenSceneWorker.swift */; };
@@ -29,6 +33,8 @@
 		74D3F84E2670970800C8C20B /* HomeScreenSceneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8482670970800C8C20B /* HomeScreenSceneModels.swift */; };
 		74D3F84F2670970800C8C20B /* HomeScreenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F8492670970800C8C20B /* HomeScreenSceneViewController.swift */; };
 		74D3F8502670970800C8C20B /* HomeScreenSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F84A2670970800C8C20B /* HomeScreenSceneInteractor.swift */; };
+		74D5310F2673971E003B1DC1 /* HomeScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D5310E2673971E003B1DC1 /* HomeScreenTableViewController.swift */; };
+		74D531122673C412003B1DC1 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D531112673C412003B1DC1 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +53,11 @@
 		749F2E08266F84010017AFC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749F2E0B266F84010017AFC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		749F2E0D266F84010017AFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74AB40C226775C9300EDFF18 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		74AB40C5267762B900EDFF18 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
 		74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		74B2BAB0267254A3008351E9 /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
+		74B2BAB1267254A3008351E9 /* GradientViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GradientViewController.xib; sourceTree = "<group>"; };
 		74BF684D2670B10A005D0855 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		74D3F8452670970800C8C20B /* HomeScreenScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenScenePresenter.swift; sourceTree = "<group>"; };
 		74D3F8462670970800C8C20B /* HomeScreenSceneWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSceneWorker.swift; sourceTree = "<group>"; };
@@ -55,6 +65,8 @@
 		74D3F8482670970800C8C20B /* HomeScreenSceneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSceneModels.swift; sourceTree = "<group>"; };
 		74D3F8492670970800C8C20B /* HomeScreenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSceneViewController.swift; sourceTree = "<group>"; };
 		74D3F84A2670970800C8C20B /* HomeScreenSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSceneInteractor.swift; sourceTree = "<group>"; };
+		74D5310E2673971E003B1DC1 /* HomeScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewController.swift; sourceTree = "<group>"; };
+		74D531112673C412003B1DC1 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		85A5EF8310E6D7820BE917B8 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FB26E8FC76A89FCF690CE1 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		D974BD430DCB0E7FD3E79446 /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,10 +136,7 @@
 		749F2DFE266F83FF0017AFC3 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				74B2BAA42671EFE7008351E9 /* MVC */,
-				7439632F2671180E007E16C6 /* SwiftUI View */,
-				74D3F838267096CD00C8C20B /* HomeScene */,
-				749F2E13266F89140017AFC3 /* TabBarView */,
+				74D531102673C3F5003B1DC1 /* Extensions */,
 				749F2DFF266F83FF0017AFC3 /* AppDelegate.swift */,
 				749F2E01266F83FF0017AFC3 /* SceneDelegate.swift */,
 				749F2E03266F83FF0017AFC3 /* ViewController.swift */,
@@ -135,18 +144,23 @@
 				749F2E08266F84010017AFC3 /* Assets.xcassets */,
 				749F2E0A266F84010017AFC3 /* LaunchScreen.storyboard */,
 				749F2E0D266F84010017AFC3 /* Info.plist */,
+				74B2BAAD26722F21008351E9 /* Other */,
+				74B2BAAC26722EFF008351E9 /* Default files */,
+				7439632F2671180E007E16C6 /* SwiftUI View */,
+				74B2BAAB26722EC4008351E9 /* VIP */,
+				74B2BAA42671EFE7008351E9 /* MVC */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
 		};
-		749F2E13266F89140017AFC3 /* TabBarView */ = {
+		749F2E13266F89140017AFC3 /* _oldTabBarView */ = {
 			isa = PBXGroup;
 			children = (
 				74889CA6266FC2DA00466EFA /* TabBarViewController.swift */,
 				74889CA8266FC8DB00466EFA /* MapViewController.swift */,
 				74889CA9266FC8DB00466EFA /* MapViewController.xib */,
 			);
-			path = TabBarView;
+			path = _oldTabBarView;
 			sourceTree = "<group>";
 		};
 		74B2BAA42671EFE7008351E9 /* MVC */ = {
@@ -165,6 +179,8 @@
 				7439632B26710970007E16C6 /* NetworkManager.swift */,
 				7439630E2670BECD007E16C6 /* WeatherData.swift */,
 				7439632D267109D8007E16C6 /* WeatherModel.swift */,
+				74AB40C226775C9300EDFF18 /* Locations.swift */,
+				74AB40C4267762B900EDFF18 /* WeatherApp.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				74BF684D2670B10A005D0855 /* HomeScreen.storyboard */,
+				74B2BAB0267254A3008351E9 /* GradientViewController.swift */,
+				74B2BAB1267254A3008351E9 /* GradientViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,8 +199,32 @@
 			isa = PBXGroup;
 			children = (
 				74B2BAA92671F43B008351E9 /* HomeScreenViewController.swift */,
+				74D5310E2673971E003B1DC1 /* HomeScreenTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		74B2BAAB26722EC4008351E9 /* VIP */ = {
+			isa = PBXGroup;
+			children = (
+				74D3F838267096CD00C8C20B /* HomeScene */,
+			);
+			path = VIP;
+			sourceTree = "<group>";
+		};
+		74B2BAAC26722EFF008351E9 /* Default files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Default files";
+			sourceTree = "<group>";
+		};
+		74B2BAAD26722F21008351E9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				749F2E13266F89140017AFC3 /* _oldTabBarView */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		74BF684F2670B25E005D0855 /* Workers */ = {
@@ -206,6 +248,14 @@
 				74D3F84A2670970800C8C20B /* HomeScreenSceneInteractor.swift */,
 			);
 			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		74D531102673C3F5003B1DC1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74D531112673C412003B1DC1 /* CustomColors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D27D1FCB488ADDCE7C26DDE4 /* Frameworks */ = {
@@ -279,6 +329,7 @@
 				749F2E0C266F84010017AFC3 /* LaunchScreen.storyboard in Resources */,
 				749F2E09266F84010017AFC3 /* Assets.xcassets in Resources */,
 				749F2E07266F83FF0017AFC3 /* Main.storyboard in Resources */,
+				74B2BAB3267254A3008351E9 /* GradientViewController.xib in Resources */,
 				74889CAB266FC8DB00466EFA /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,17 +388,22 @@
 				74D3F84E2670970800C8C20B /* HomeScreenSceneModels.swift in Sources */,
 				74889CA7266FC2DA00466EFA /* TabBarViewController.swift in Sources */,
 				7439632C26710970007E16C6 /* NetworkManager.swift in Sources */,
+				74AB40C326775C9300EDFF18 /* Locations.swift in Sources */,
 				749F2E04266F83FF0017AFC3 /* ViewController.swift in Sources */,
 				74D3F8502670970800C8C20B /* HomeScreenSceneInteractor.swift in Sources */,
 				74D3F84B2670970800C8C20B /* HomeScreenScenePresenter.swift in Sources */,
+				74AB40C6267762B900EDFF18 /* WeatherApp.xcdatamodeld in Sources */,
 				749F2E00266F83FF0017AFC3 /* AppDelegate.swift in Sources */,
 				74889CAA266FC8DB00466EFA /* MapViewController.swift in Sources */,
 				74D3F84F2670970800C8C20B /* HomeScreenSceneViewController.swift in Sources */,
 				7439632E267109D8007E16C6 /* WeatherModel.swift in Sources */,
+				74D5310F2673971E003B1DC1 /* HomeScreenTableViewController.swift in Sources */,
 				749F2E02266F83FF0017AFC3 /* SceneDelegate.swift in Sources */,
 				7439630F2670BECD007E16C6 /* WeatherData.swift in Sources */,
 				74D3F84C2670970800C8C20B /* HomeScreenSceneWorker.swift in Sources */,
+				74D531122673C412003B1DC1 /* CustomColors.swift in Sources */,
 				7439633126711892007E16C6 /* SwiftUIView.swift in Sources */,
+				74B2BAB2267254A3008351E9 /* GradientViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -551,6 +607,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		74AB40C4267762B900EDFF18 /* WeatherApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				74AB40C5267762B900EDFF18 /* Weather.xcdatamodel */,
+			);
+			currentVersion = 74AB40C5267762B900EDFF18 /* Weather.xcdatamodel */;
+			path = WeatherApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 749F2DF4266F83FF0017AFC3 /* Project object */;
 }

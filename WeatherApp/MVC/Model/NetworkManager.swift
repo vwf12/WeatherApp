@@ -20,7 +20,7 @@ struct NetworkManager {
     
     func fetchWeather(cityName: String) {
         print("Fetching weather for \(cityName)")
-        let urlString = "\(weatherURL)&q=\(cityName)"
+        guard let urlString = "\(weatherURL)&q=\(cityName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
         perfomRequest(with: urlString)
     }
@@ -47,11 +47,24 @@ struct NetworkManager {
     func parseJSON(_ weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do {
+            print("trying to decode")
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            let id = decodedData.weather[0].id
-            let temp = decodedData.main.temp
-            let name = decodedData.name
-            let country = decodedData.sys.country
+            let cod = decodedData.cod
+            print(cod as Any)
+            guard cod?.value != "404" else {
+                
+                print("City not found")
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didReceive404Error"), object: self)
+                }
+                
+                return nil
+            }
+            guard let id = decodedData.weather?[0].id else { return nil }
+            guard let temp = decodedData.main?.temp else { return nil }
+            guard let name = decodedData.name else { return nil }
+            guard let country = decodedData.sys?.country else { return nil }
+            
             print(decodedData)
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, country: country)
@@ -64,4 +77,7 @@ struct NetworkManager {
         }
     }
 }
+
+
+
 

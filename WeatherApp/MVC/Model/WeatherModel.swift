@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import CoreData
 
-struct WeatherModel {
-    let conditionId: Int
-    let cityName: String
-    let temperature: Double
-    let country: String
+public class WeatherModel: NSObject, NSCoding {
+    public var conditionId: Int
+    public var cityName: String
+    public var temperature: Double
+    public var country: String
     
-    var temperatureString: String {
+    public var temperatureString: String {
         return String(format: "%.1f", temperature)
     }
     
-    var conditionName: String {
+    public var conditionName: String {
         switch conditionId {
         case 200...232:
             return "cloud.bolt"
@@ -37,4 +38,40 @@ struct WeatherModel {
             return "cloud"
         }
     }
+    
+    enum Key: String {
+        case conditionId = "conditionId"
+        case cityName = "cityName"
+        case temperature = "temperature"
+        case country = "country"
+    }
+    
+    init(conditionId: Int, cityName: String, temperature: Double, country: String) {
+        self.conditionId = conditionId
+        self.cityName = cityName
+        self.temperature = temperature
+        self.country = country
+    }
+    
+//    public override init() {
+//        super.init()
+//    }
+    
+    public func encode(with coder: NSCoder) {
+        coder.encode(conditionId, forKey: Key.conditionId.rawValue)
+        coder.encode(cityName, forKey: Key.cityName.rawValue)
+        coder.encode(temperature, forKey: Key.temperature.rawValue)
+        coder.encode(country, forKey: Key.country.rawValue)
+    }
+    
+    public required convenience init?(coder: NSCoder) {
+        let mConditionId = coder.decodeInteger(forKey: Key.conditionId.rawValue)
+        let mCityName = coder.decodeObject(forKey: Key.cityName.rawValue) as? String ?? ""
+        let mTemperature = coder.decodeDouble(forKey: Key.temperature.rawValue)
+        let mCountry = coder.decodeObject(forKey: Key.country.rawValue) as? String ?? ""
+        
+        self.init(conditionId: mConditionId, cityName: mCityName, temperature: mTemperature, country: mCountry)
+    }
+    
+
 }
