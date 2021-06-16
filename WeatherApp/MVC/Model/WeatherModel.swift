@@ -53,10 +53,6 @@ public class WeatherModel: NSObject, NSCoding {
         self.country = country
     }
     
-//    public override init() {
-//        super.init()
-//    }
-    
     public func encode(with coder: NSCoder) {
         coder.encode(conditionId, forKey: Key.conditionId.rawValue)
         coder.encode(cityName, forKey: Key.cityName.rawValue)
