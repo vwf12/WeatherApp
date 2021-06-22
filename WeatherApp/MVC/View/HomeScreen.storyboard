@@ -82,7 +82,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addCityButton" destination="Ox1-Rr-9bj" id="j4T-3k-bdw"/>
-                        <outlet property="tableView" destination="FGY-5i-gx9" id="FdP-gF-cpG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LyV-h1-FwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
