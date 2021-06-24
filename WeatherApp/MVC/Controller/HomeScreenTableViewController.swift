@@ -80,11 +80,11 @@ extension HomeScreenTableViewController {
         let managedContext =
             appDelegate.persistentContainer.viewContext
         let entity =
-            NSEntityDescription.entity(forEntityName: "Locations",
+            NSEntityDescription.entity(forEntityName: "WeatherModel",
                                        in: managedContext)!
         let weather = NSManagedObject(entity: entity,
                                       insertInto: managedContext)
-        weather.setValue(locations, forKeyPath: "weatherModel")
+        weather.setValue(locations, forKeyPath: "locations")
         
         do {
             try managedContext.save()
@@ -102,13 +102,13 @@ extension HomeScreenTableViewController {
         let managedContext =
             appDelegate.persistentContainer.viewContext
         let fetchRequest =
-            NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
+            NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherModel")
         
         do {
             let result = try managedContext.fetch(fetchRequest)
             var i = 0
             for data in result as! [NSManagedObject] {
-                let mLocations = data.value(forKey: "weatherModel") as! Locations
+                let mLocations = data.value(forKey: "locations") as! Locations
                 print(" range batch : \(i)")
                 for element in mLocations.locations {
                     print("location:\(element.cityName)")

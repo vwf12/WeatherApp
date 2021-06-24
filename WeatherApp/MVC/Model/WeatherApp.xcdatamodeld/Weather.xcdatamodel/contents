@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Locations" representedClassName="Cities" syncable="YES">
-        <attribute name="weatherModel" optional="YES" attributeType="Transformable" customClassName="Locations"/>
+    <entity name="WeatherModel" representedClassName="WeatherModel" syncable="YES">
+        <attribute name="locations" optional="YES" attributeType="Transformable" customClassName="WeatherModel"/>
     </entity>
     <elements>
-        <element name="Locations" positionX="-54" positionY="-9" width="128" height="44"/>
+        <element name="WeatherModel" positionX="-54" positionY="-9" width="128" height="44"/>
     </elements>
 </model>
