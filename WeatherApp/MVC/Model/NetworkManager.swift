@@ -14,7 +14,7 @@ protocol NetworkManagerDelegate {
 
 struct NetworkManager {
     
-
+    let errorCodeValues: Set = ["400", "401", "404"]
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=daa4c78470b0f95d11bd75012915ce23&units=metric"
     var delegate: NetworkManagerDelegate?
     
@@ -51,27 +51,28 @@ struct NetworkManager {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
             let cod = decodedData.cod
             print(cod as Any)
-            guard cod?.value != "404" else {
-                
+            if let codValue = cod?.value {
+                print(codValue)
+                guard !errorCodeValues.contains(codValue) else {
                 print("City not found")
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didReceive404Error"), object: self)
+                    let error = NSError(domain: "", code: 404, userInfo: [ NSLocalizedDescriptionKey: "Error: no data"])
+                    delegate?.didFailWithError(error: error)
                 }
-                
                 return nil
             }
+            }
+            
             guard let id = decodedData.weather?[0].id else { return nil }
             guard let temp = decodedData.main?.temp else { return nil }
             guard let name = decodedData.name else { return nil }
             guard let country = decodedData.sys?.country else { return nil }
-            
             print(decodedData)
-            
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, country: country)
             return weather
         
         } catch {
-            delegate?.didFailWithError(error: error)
+//            delegate?.didFailWithError(error: error)
             print(error)
             return nil
         }

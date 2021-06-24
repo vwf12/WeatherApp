@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-public class Locations: NSObject, NSCoding {
+@objc public class Locations: NSObject, NSCoding, NSFetchRequestResult {
     public var locations: [WeatherModel]
     
     enum Key: String {
@@ -18,8 +18,6 @@ public class Locations: NSObject, NSCoding {
     init(locations: [WeatherModel]) {
         self.locations = locations
     }
-    
-
     
     public func encode(with coder: NSCoder) {
         coder.encode(locations, forKey: Key.locations.rawValue)
