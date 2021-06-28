@@ -8,8 +8,12 @@
 
 import Foundation
 
+protocol WeatherDataProtocol {
+    var cod: String.RelaxedString? { get }
+}
+
 // MARK: - Welcome
-struct WeatherData: Codable {
+struct WeatherData: Codable, WeatherDataProtocol {
     let message: String?
     let coord: Coord?
     let weather: [Weather]?
@@ -23,7 +27,7 @@ struct WeatherData: Codable {
     let sys: Sys?
     let timezone, id: Int?
     let name: String?
-    let cod: RelaxedString?
+    let cod: String.RelaxedString?
 }
 
 // MARK: - Clouds
@@ -56,9 +60,9 @@ struct Main: Codable {
 
 // MARK: - Sys
 struct Sys: Codable {
-    let type, id: Int
-    let country: String
-    let sunrise, sunset: Int
+    let type, id: Int?
+    let country: String?
+    let sunrise, sunset: Int?
 }
 
 // MARK: - Rain
@@ -90,7 +94,7 @@ struct Wind: Codable {
 }
 
 
-extension WeatherData {
+extension String {
     struct RelaxedString: Codable {
         let value: String
 

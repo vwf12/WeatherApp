@@ -9,6 +9,6 @@ target 'WeatherApp' do
   # Pods for WeatherApp
 pod 'Alamofire', '~> 5.4'
 pod 'R.swift'
-
+pod 'lottie-ios'
 
 end

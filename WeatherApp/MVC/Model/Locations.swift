@@ -10,6 +10,21 @@ import CoreData
 
 @objc public class Locations: NSObject, NSCoding, NSFetchRequestResult {
     public var locations: [WeatherModel]
+    @NSManaged public var locationStringsData: [String]
+    
+//    var locationStrings : [String] {
+//        get {
+//            let data = Data(locationStringsData.utf8)
+//            return (try? JSONDecoder().decode([String].self, from: data)) ?? []
+//        }
+//        set {
+//            guard let data = try? JSONEncoder().encode(newValue),
+//                let string = String(data: data, encoding: .utf8) else { locationStringsData = ""
+//                return
+//            }
+//            locationStringsData = string
+//        }
+//    }
     
     enum Key: String {
         case locations = "locations"

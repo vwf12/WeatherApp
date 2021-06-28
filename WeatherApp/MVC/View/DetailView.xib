@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailView" customModule="WeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="cityLabel" destination="o4m-PD-C58" id="bNi-PT-VXg"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="5Ar-u5-beS"/>
+                <outlet property="dateBadgeView" destination="9Li-5h-qVY" id="TaN-mj-aZ9"/>
+                <outlet property="dateLabel" destination="o4m-PD-C58" id="g9n-PH-zum"/>
+                <outlet property="lottieView" destination="lo6-uI-pxG" id="vty-7B-0nk"/>
+                <outlet property="temperature" destination="DmQ-l3-EBF" id="Mw2-tr-W4q"/>
+                <outlet property="weatherStatus" destination="DmQ-l3-EBF" id="HZ0-GG-XIg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="460"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VjX-JP-9C1" userLabel="Content View">
+                    <rect key="frame" x="16" y="22" width="268" height="418"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Li-5h-qVY" userLabel="Date badge view">
+                            <rect key="frame" x="47" y="-17" width="174" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 28 June" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4m-PD-C58" userLabel="Date label">
+                                    <rect key="frame" x="27" y="10" width="121" height="20"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="o4m-PD-C58" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="top" constant="10" id="DML-Gw-1eR"/>
+                                <constraint firstAttribute="trailing" secondItem="o4m-PD-C58" secondAttribute="trailing" constant="26" id="hvm-MT-l9E"/>
+                                <constraint firstItem="o4m-PD-C58" firstAttribute="leading" secondItem="9Li-5h-qVY" secondAttribute="leading" constant="27" id="l2r-dU-ohL"/>
+                                <constraint firstAttribute="bottom" secondItem="o4m-PD-C58" secondAttribute="bottom" constant="10" id="zYB-aS-tdF"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thunderstorm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNf-GW-7WJ" userLabel="Weather status label">
+                            <rect key="frame" x="80" y="31" width="117" height="25"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-uI-pxG" userLabel="Lottie View">
+                            <rect key="frame" x="24" y="183" width="220" height="198"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmQ-l3-EBF">
+                            <rect key="frame" x="8" y="45" width="252" height="130"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="100"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <constraints>
+                        <constraint firstItem="vNf-GW-7WJ" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="8" id="EKt-dr-vqP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="9Li-5h-qVY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="63" id="1wG-4M-9H4"/>
+                <constraint firstItem="vNf-GW-7WJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="96" id="MUe-f6-ljR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9Li-5h-qVY" secondAttribute="trailing" constant="63" id="V8u-Jm-4rQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="415" id="okQ-so-gNn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="top" constant="39" id="p98-Fi-RtM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNf-GW-7WJ" secondAttribute="trailing" constant="87" id="udg-HK-9OQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="89.855072463768124" y="-52.232142857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

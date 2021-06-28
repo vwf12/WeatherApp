@@ -14,7 +14,10 @@ class HomeScreenTableViewController: UITableViewController {
     @IBOutlet private weak var addCityButton: UIBarButtonItem!
     
     //    MARK: --Properties--
+    private var weatherModels = [WeatherModel]()
     private var locations = Locations(locations: [])
+    private var locationsStrings = Set<String>()
+    private var locationsObjects = [NSManagedObject]()
     private var networkManager = NetworkManager()
     
     //    MARK: --View Livecycle--
@@ -24,28 +27,44 @@ class HomeScreenTableViewController: UITableViewController {
         networkManager.delegate = self
         self.tableView.rowHeight = 60.0
         title = "Locations"
+        self.loadLocations()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadData()
+//        self.loadData()
+
     }
     
     //    MARK: --View Setup--
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! HomeScreenTableViewCell
-        let location = locations.locations[indexPath.row]
+        let location = weatherModels[indexPath.row]
         cell.configureCell(for: location)        
         return cell
     }
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return  locations.locations.count
+//        return  locations.locations.count
+        weatherModels.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedLocation = weatherModels[indexPath.row]
+        
+//        
+//        if let viewController = storyboard?.instantiateViewController(identifier: "WeatherLocationViewController") as? WeatherLocationViewController {
+//            viewController.location = selectedLocation.cityName
+//            navigationController?.pushViewController(viewController, animated: true)
+                if let viewController = storyboard?.instantiateViewController(identifier: "WeatherDetailedViewController") as? WeatherDetailedViewController {
+                    viewController.weatherModel = selectedLocation
+                    navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     //    MARK: --IBActions--
     @IBAction func addCity(_ sender: Any) {
@@ -59,7 +78,8 @@ class HomeScreenTableViewController: UITableViewController {
             guard let textToSave = firstTextField.text else {
                 return
             }
-            self.networkManager.fetchWeather(cityName: textToSave)
+//            self.networkManager.fetchShortWeather(cityName: textToSave)
+            self.networkManager.fetchWeather(for: textToSave, type: .short)
             print("Location: \(firstTextField.text ?? "EMPTY_LOCATION") entered")
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
@@ -85,13 +105,35 @@ extension HomeScreenTableViewController {
         let weather = NSManagedObject(entity: entity,
                                       insertInto: managedContext)
         weather.setValue(locations, forKeyPath: "locations")
-        
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    func saveLocationString(location: String) {
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Location",
+                                       in: managedContext)!
+        let locationObject = NSManagedObject(entity: entity,
+                                      insertInto: managedContext)
+        locationObject.setValue(location, forKeyPath: "name")
+        do {
+            try managedContext.save()
+            locationsObjects.append(locationObject)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     func loadData() {
         guard let appDelegate =
@@ -120,6 +162,34 @@ extension HomeScreenTableViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    func loadLocations() {
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Location")
+        do {
+            locationsObjects = try managedContext.fetch(fetchRequest)
+            locationsObjects.forEach({
+                if let locationString = $0.value(forKey: "name") as? String {
+                    locationsStrings.insert(locationString)
+                }
+            })
+            DispatchQueue.main.async { [weak self] in
+                self?.locationsStrings.forEach({
+//                    self?.networkManager.fetchShortWeather(cityName: $0)
+                    self?.networkManager.fetchWeather(for: $0, type: .short)
+                })
+            }
+            print(locationsStrings)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 }
 
 // MARK: Extension: Alert
@@ -136,14 +206,28 @@ extension HomeScreenTableViewController {
 
 // MARK: Extension:  NetworkManagerDelegate
 extension HomeScreenTableViewController: NetworkManagerDelegate {
-    func didUpdateWeather(_ weatherManager: NetworkManager, weather: WeatherModel) {
-        locations.locations.append(weather)
-        print("Appended weather for \(weather.cityName), reloading data")
+    func didUpdateWeather(_ weatherManager: NetworkManager, weather: WeatherModelProtocol) {
+        let weatherModel = weather as! WeatherModel
+        weatherModels.append(weatherModel)
+        print("Appended weather for \(weatherModel.cityName), reloading data")
         DispatchQueue.main.async {
-            self.saveData(location: weather)
+//            self.saveData(location: weather)
+            self.saveLocationString(location: weatherModel.cityName)
             self.tableView.reloadData()
         }
     }
+    
+//    func didUpdateWeather(_ weatherManager: NetworkManager, weather: WeatherModel) {
+////        locations.locations.append(weather)
+////        locations.locationStrings.insert(weather.cityName)
+//        weatherModels.append(weather)
+//        print("Appended weather for \(weather.cityName), reloading data")
+//        DispatchQueue.main.async {
+////            self.saveData(location: weather)
+//            self.saveLocationString(location: weather.cityName)
+//            self.tableView.reloadData()
+//        }
+//    }
     func didFailWithError(error: Error) {
         sendAlert()
         print(error)
