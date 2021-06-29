@@ -12,9 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailView" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="cityLabel" destination="o4m-PD-C58" id="bNi-PT-VXg"/>
-                <outlet property="contentView" destination="iN0-l3-epB" id="5Ar-u5-beS"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="5uz-6s-Ff3"/>
                 <outlet property="dateBadgeView" destination="9Li-5h-qVY" id="TaN-mj-aZ9"/>
                 <outlet property="dateLabel" destination="o4m-PD-C58" id="g9n-PH-zum"/>
+                <outlet property="innerBackgoundView" destination="VjX-JP-9C1" id="42L-4K-OVx"/>
                 <outlet property="lottieView" destination="lo6-uI-pxG" id="vty-7B-0nk"/>
                 <outlet property="temperature" destination="DmQ-l3-EBF" id="Mw2-tr-W4q"/>
                 <outlet property="weatherStatus" destination="DmQ-l3-EBF" id="HZ0-GG-XIg"/>
@@ -25,62 +26,77 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VjX-JP-9C1" userLabel="Content View">
-                    <rect key="frame" x="16" y="22" width="268" height="418"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEW-a7-miE" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="460"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjX-JP-9C1" userLabel="Inner background View">
+                            <rect key="frame" x="20" y="20" width="260" height="420"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thunderstorm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNf-GW-7WJ" userLabel="Weather status label">
+                                    <rect key="frame" x="71.5" y="64" width="117" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="kCt-Dt-hSg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-uI-pxG" userLabel="Lottie View">
+                                    <rect key="frame" x="24" y="183" width="220" height="198"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmQ-l3-EBF">
+                                    <rect key="frame" x="36" y="64" width="188" height="130"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="100"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.76208026518826677" green="0.91764705882352937" blue="0.74284060014124176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="vNf-GW-7WJ" firstAttribute="centerX" secondItem="VjX-JP-9C1" secondAttribute="centerX" id="VZA-Wj-kyS"/>
+                                <constraint firstItem="DmQ-l3-EBF" firstAttribute="centerX" secondItem="VjX-JP-9C1" secondAttribute="centerX" id="sQo-6V-mCm"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Li-5h-qVY" userLabel="Date badge view">
-                            <rect key="frame" x="47" y="-17" width="174" height="40"/>
+                            <rect key="frame" x="67" y="0.0" width="166" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 28 June" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4m-PD-C58" userLabel="Date label">
-                                    <rect key="frame" x="27" y="10" width="121" height="20"/>
+                                    <rect key="frame" x="22.5" y="10" width="121" height="20"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="o4m-PD-C58" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="top" constant="10" id="DML-Gw-1eR"/>
-                                <constraint firstAttribute="trailing" secondItem="o4m-PD-C58" secondAttribute="trailing" constant="26" id="hvm-MT-l9E"/>
-                                <constraint firstItem="o4m-PD-C58" firstAttribute="leading" secondItem="9Li-5h-qVY" secondAttribute="leading" constant="27" id="l2r-dU-ohL"/>
-                                <constraint firstAttribute="bottom" secondItem="o4m-PD-C58" secondAttribute="bottom" constant="10" id="zYB-aS-tdF"/>
+                                <constraint firstItem="o4m-PD-C58" firstAttribute="centerX" secondItem="9Li-5h-qVY" secondAttribute="centerX" id="A05-Py-RcX"/>
+                                <constraint firstAttribute="height" constant="40" id="EXQ-nn-ipS"/>
+                                <constraint firstItem="o4m-PD-C58" firstAttribute="centerY" secondItem="9Li-5h-qVY" secondAttribute="centerY" id="peE-18-uqK"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thunderstorm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNf-GW-7WJ" userLabel="Weather status label">
-                            <rect key="frame" x="80" y="31" width="117" height="25"/>
-                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-uI-pxG" userLabel="Lottie View">
-                            <rect key="frame" x="24" y="183" width="220" height="198"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmQ-l3-EBF">
-                            <rect key="frame" x="8" y="45" width="252" height="130"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="100"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="vNf-GW-7WJ" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="8" id="EKt-dr-vqP"/>
+                        <constraint firstAttribute="trailing" secondItem="9Li-5h-qVY" secondAttribute="trailing" constant="67" id="ATz-Ww-Mka"/>
+                        <constraint firstItem="9Li-5h-qVY" firstAttribute="leading" secondItem="BEW-a7-miE" secondAttribute="leading" constant="67" id="FbO-JP-HAf"/>
+                        <constraint firstAttribute="bottom" secondItem="VjX-JP-9C1" secondAttribute="bottom" constant="20" id="HgH-oC-cFd"/>
+                        <constraint firstItem="vNf-GW-7WJ" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="44" id="L5E-iU-y7w" userLabel="Weather status label.top = Date badge view.bottom + 20"/>
+                        <constraint firstAttribute="trailing" secondItem="VjX-JP-9C1" secondAttribute="trailing" constant="20" id="Orc-dO-GqJ"/>
+                        <constraint firstItem="VjX-JP-9C1" firstAttribute="top" secondItem="BEW-a7-miE" secondAttribute="top" constant="20" id="WX1-ve-caO"/>
+                        <constraint firstItem="9Li-5h-qVY" firstAttribute="top" secondItem="BEW-a7-miE" secondAttribute="top" id="WeW-Na-mMo"/>
+                        <constraint firstItem="DmQ-l3-EBF" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="44" id="eba-ju-16a" userLabel="25°.top = Date badge view.bottom + 20"/>
+                        <constraint firstItem="9Li-5h-qVY" firstAttribute="centerX" secondItem="BEW-a7-miE" secondAttribute="centerX" id="oOn-mv-Aw7"/>
+                        <constraint firstItem="VjX-JP-9C1" firstAttribute="leading" secondItem="BEW-a7-miE" secondAttribute="leading" constant="20" id="qv0-8m-fO5"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="9Li-5h-qVY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="63" id="1wG-4M-9H4"/>
-                <constraint firstItem="vNf-GW-7WJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="96" id="MUe-f6-ljR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9Li-5h-qVY" secondAttribute="trailing" constant="63" id="V8u-Jm-4rQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9Li-5h-qVY" secondAttribute="bottom" constant="415" id="okQ-so-gNn"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="9Li-5h-qVY" secondAttribute="top" constant="39" id="p98-Fi-RtM"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNf-GW-7WJ" secondAttribute="trailing" constant="87" id="udg-HK-9OQ"/>
+                <constraint firstItem="BEW-a7-miE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q4l-Lm-xvt"/>
+                <constraint firstItem="BEW-a7-miE" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="TXC-Lt-ZIu"/>
+                <constraint firstItem="BEW-a7-miE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bOk-kA-wBa"/>
+                <constraint firstItem="BEW-a7-miE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mMX-vg-RT8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="89.855072463768124" y="-52.232142857142854"/>
@@ -89,9 +105,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

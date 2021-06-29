@@ -49,14 +49,9 @@ struct NetworkManager {
     
     func fetchShortWeather(cityName: String) {
         print("Fetching weather for \(cityName)")
-//        guard let urlString = "\(weatherURL)&q=\(cityName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        
-//        perfomRequest(with: urlString)
     }
     
     func perfomRequest(with url: URL, type: WeatherRequestType) {
-        
-        
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
@@ -70,7 +65,6 @@ struct NetworkManager {
                 }
             }
             task.resume()
-        
     }
     
     func parseJSON(_ weatherData: Data, type: WeatherRequestType) -> WeatherModelProtocol? {
@@ -138,14 +132,6 @@ struct NetworkManager {
                 break
             }
             return weatherToReturn
-//            guard let id = decodedData.weather?[0].id else { return nil }
-//            guard let temp = decodedData.main?.temp else { return nil }
-//            guard let name = decodedData.name else { return nil }
-//            guard let country = decodedData.sys?.country else { return nil }
-//            print(decodedData)
-//            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, country: country)
-//            return weather
-        
         } catch {
 //            delegate?.didFailWithError(error: error)
             print(error)

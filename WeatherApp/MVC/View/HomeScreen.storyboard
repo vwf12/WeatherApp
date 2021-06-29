@@ -102,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j49-1q-kU7">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -112,7 +112,7 @@
                             <constraint firstItem="j49-1q-kU7" firstAttribute="trailing" secondItem="bl4-gm-lfN" secondAttribute="trailing" id="U4E-n8-9Y3"/>
                             <constraint firstItem="j49-1q-kU7" firstAttribute="leading" secondItem="bl4-gm-lfN" secondAttribute="leading" id="ZSK-rR-jhA"/>
                             <constraint firstItem="bl4-gm-lfN" firstAttribute="bottom" secondItem="j49-1q-kU7" secondAttribute="bottom" id="hJJ-g5-41N"/>
-                            <constraint firstItem="j49-1q-kU7" firstAttribute="top" secondItem="bl4-gm-lfN" secondAttribute="top" constant="20" id="l3L-JZ-Hex"/>
+                            <constraint firstItem="j49-1q-kU7" firstAttribute="top" secondItem="bl4-gm-lfN" secondAttribute="top" id="l3L-JZ-Hex"/>
                         </constraints>
                     </view>
                     <connections>
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPC-HP-C5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063.75" y="821.83098591549299"/>
+            <point key="canvasLocation" x="3064" y="800"/>
         </scene>
         <!--Weather Location View Controller-->
         <scene sceneID="xXi-a3-v7t">

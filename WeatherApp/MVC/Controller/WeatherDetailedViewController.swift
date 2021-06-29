@@ -14,6 +14,7 @@ class WeatherDetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = weatherModel?.cityName
         let detailedView = DetailView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         detailedView.weatherModel = weatherModel
         detailedView.resetupView()

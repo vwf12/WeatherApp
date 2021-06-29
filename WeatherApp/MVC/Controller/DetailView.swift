@@ -10,6 +10,7 @@ import Lottie
 
 class DetailView: UIView {
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var innerBackgoundView: UIView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherStatus: UILabel!
     @IBOutlet weak var temperature: UILabel!
@@ -25,8 +26,8 @@ class DetailView: UIView {
     private var date: String {
         let date = Date()
         let df = DateFormatter()
-        df.dateFormat = "dd"
-        let dateString = df.string(from: date) + date.dayOfWeek()!
+        df.dateFormat = "dd MMMM"
+        let dateString = df.string(from: date) + ", " + date.dayOfWeek()!
         return dateString
     }
     
@@ -55,7 +56,6 @@ class DetailView: UIView {
     }
     
     private func commonInit() {
-//        Bundle(for: DetailView.self).loadNibNamed("DetailView", owner: self, options: nil)
         Bundle.main.loadNibNamed("DetailView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -67,7 +67,12 @@ class DetailView: UIView {
     }
     
     private func setupView(model :WeatherModel) {
-        contentView.applyDefaultGradient()
+        innerBackgoundView.layer.cornerRadius = 10
+        innerBackgoundView.layer.shadowColor = UIColor.black.cgColor
+        innerBackgoundView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        innerBackgoundView.layer.shadowOpacity = 0.7
+        innerBackgoundView.layer.shadowRadius = 4.0
+
         
         dateBadgeView.layer.cornerRadius = 20
         dateBadgeView.layer.borderWidth = 1.0
@@ -88,6 +93,7 @@ class DetailView: UIView {
         animationView!.animationSpeed = 0.5
         lottieView.addSubview(animationView!)
         animationView!.play()
+        
         lottieView.layer.shadowColor = UIColor.white.cgColor
         lottieView.layer.shadowOffset = CGSize(width: 0, height: -20)
         lottieView.layer.shadowOpacity = 0.7
